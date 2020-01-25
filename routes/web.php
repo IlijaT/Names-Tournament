@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::get('/tournaments/{tournament}', 'TournamentsController@show')->name('tournaments.show');
 Route::post('/tournaments', 'TournamentsController@store')->name('tournaments.store');
+
