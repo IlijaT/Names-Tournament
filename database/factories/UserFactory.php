@@ -21,5 +21,9 @@ $factory->define(User::class, function (Faker $faker) {
     return [
         'first_name' => $faker->name,
         'last_name' => $faker->name,
+        'matches_played' => 0,
+        'wins_count' => 0,
+        'defeats_count' => 0,
+        'points' => 0,
     ];
 });
