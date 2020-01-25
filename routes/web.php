@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/text', function () { });
+Route::get('/tournaments/create', 'TournamentsController@create')->name('tournaments.create');
