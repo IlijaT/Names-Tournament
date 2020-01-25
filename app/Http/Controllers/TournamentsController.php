@@ -22,4 +22,9 @@ class TournamentsController extends Controller
     {
         return view('tournaments.show', compact('tournament'));
     }
+
+    public function quarterFinal()
+    {
+        dd(request()->all());
+    }
 }

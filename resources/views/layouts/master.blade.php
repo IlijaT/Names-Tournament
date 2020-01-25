@@ -29,11 +29,15 @@
     </head>
     <body>
         
-        @include('layouts._header')
+        @yield('navbar')   
+        
+        <div class="main_slider_area">
 
-        @yield('content')    
-       
-        @include('layouts._footer')
+            @yield('content') 
+
+        </div>
+
+        @yield('footer') 
         
     </body>
 </html>
