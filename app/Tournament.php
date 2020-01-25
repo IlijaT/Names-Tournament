@@ -13,4 +13,10 @@ class Tournament extends Model
     {
         return $this->belongsToMany('App\User');
     }
+
+    public function createFirstRound()
+    {
+        $competitors = User::all()->random(16);
+        $this->users()->attach($competitors);
+    }
 }

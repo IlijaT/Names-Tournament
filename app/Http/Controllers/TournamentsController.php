@@ -10,17 +10,16 @@ use Illuminate\Http\Request;
 class TournamentsController extends Controller
 {
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store()
     {
         $tournament = Tournament::create(['name' => Str::upper(Str::random(10))]);
-        $competitors = User::all()->random(16);
+        $tournament->createFirstRound();
 
-        return $competitors;
+        return redirect(route('tournaments.show', $tournament));
+    }
+
+    public function show(Tournament $tournament)
+    {
+        return view('tournaments.show', compact('tournament'));
     }
 }

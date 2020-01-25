@@ -82,7 +82,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <a href="{{ route('tournaments.create') }}">Start New Tournament</a>
+                    <form action="{{ route('tournaments.store') }}" method="POST">
+                        @csrf
+                        <button type="submit">Start New Tournament</button>
+                    </form>
                 </div>
             </div>
         </div>
