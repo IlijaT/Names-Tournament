@@ -7,12 +7,15 @@
 <div class="container mt-5">
     <section class="row justify-content-md-center">
          
-        <div class="col-sm-12 col-md-8">
-
+      
+      <div class="col-sm-12 col-md-8">
+        
           @if ($tournament->users->count() == 16)
-            <h1 class="text-center">First Round</h1>
+          <h1 class="text-center">First Round</h1>
           @endif
 
+          @include('layouts._errors')
+        
           <form action="{{ route('quarter-final.store', $tournament) }}" method="POST">
             @csrf
             <ul class="list-group">
@@ -24,7 +27,11 @@
                     @if ($loop->odd)
                       <div>
                         {{ $user->full_name}}
-                        <input type="radio" name="participant-{{$index}}" value="{{$user->id}}">
+                        <input 
+                          type="radio" 
+                          name="participants[{{$index}}]" 
+                          value="{{$user->id}}" 
+                          {{ isset(old("participants")[$index]) && old("participants")[$index] == $user->id ? 'checked' : '' }}>
                         {{-- <span class="badge badge-primary badge-pill">srce</span> --}}
                       </div> 
                       <div>
@@ -33,7 +40,11 @@
                     @else
                       <div>
                         {{-- <span class="badge badge-primary badge-pill">srce</span> --}}
-                        <input type="radio" name="participant-{{$index}}" value="{{$user->id}}">
+                        <input 
+                          type="radio" 
+                          name="participants[{{$index}}]" 
+                          value="{{$user->id}}"
+                          {{ isset(old("participants")[$index]) && old("participants")[$index] == $user->id ? 'checked' : '' }}>
                         {{ $user->full_name}}
                       </div> 
                     @endif

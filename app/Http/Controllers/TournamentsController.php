@@ -23,8 +23,16 @@ class TournamentsController extends Controller
         return view('tournaments.show', compact('tournament'));
     }
 
+    
+
     public function quarterFinal()
     {
+        request()->validate([
+            'participants' => 'required|array|min:8|max:8',
+        ], [
+            'participants.*' => 'Niste cekirali sve pobednike duela!'
+        ]);
+
         dd(request()->all());
     }
 }
