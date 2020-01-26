@@ -10,17 +10,15 @@
       
       <div class="col-sm-12 col-md-8">
         
-          @if ($tournament->users->count() == 16)
-            <h1 class="text-center mb-4">First Round</h1>
-          @endif
+        <h1 class="text-center mb-4">Semi Final</h1>
 
           @include('layouts._errors')
         
-          <form action="{{ route('quarter-finals.store', $tournament) }}" method="POST">
+          <form action="{{ route('finals.store', $tournament) }}" method="POST">
             @csrf
             <ul class="list-group">
 
-              @foreach ($tournament->users->chunk(2) as $index => $chunk)
+              @foreach ($semiFinalists->chunk(2) as $index => $chunk)
                 
                 <li class="list-group-item d-flex justify-content-between align-items-center mb-3 shadow-lg rounded-lg">
                   @foreach ($chunk as $user)

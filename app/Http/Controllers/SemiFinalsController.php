@@ -8,6 +8,15 @@ use Illuminate\Http\Request;
 
 class SemiFinalsController extends Controller
 {
+
+    public function show(Tournament $tournament) 
+    {
+        $semiFinalists = $tournament->semiFinalists();
+
+        return view('tournaments.semi-final', compact('tournament', 'semiFinalists'));  
+     
+    }
+
     public function store(Tournament $tournament)
     {
         request()->validate([
@@ -17,11 +26,9 @@ class SemiFinalsController extends Controller
         ]);
 
         $semiFinalists = User::findMany(request('participants'));
-        dd('semi final');    
-        // $tournament->createSemiFinal($semiFinalists );
+        $tournament->createSemiFinal($semiFinalists );
         
-        // return redirect(route('quarter-final.show', $tournament->id));
-        
+        return redirect(route('semi-finals.show', $tournament->id));
 
     }
 }

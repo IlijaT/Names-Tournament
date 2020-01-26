@@ -70,4 +70,26 @@ class Tournament extends Model
         }
     }
 
+    public function createSemiFinal($semifinalists) 
+    {
+        foreach ($semifinalists as $user) {
+            $user->increment('matches_played');
+            $user->increment('wins_count');
+            $user->increment('points', 20);
+            $user->tournaments()->updateExistingPivot($this->id, ['semi_final' => true]);
+        }
+    
+    }
+
+    public function createFinal($finalists) 
+    {
+        foreach ($finalists as $user) {
+            $user->increment('matches_played');
+            $user->increment('wins_count');
+            $user->increment('points', 30);
+            $user->tournaments()->updateExistingPivot($this->id, ['final' => true]);
+        }
+    
+    }
+
 }

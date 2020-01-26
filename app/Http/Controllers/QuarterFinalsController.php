@@ -30,7 +30,7 @@ class QuarterFinalsController extends Controller
 
         $tournament->createQuarterFinal($quarterFinalists);
         
-        return redirect(route('quarter-final.show', $tournament->id));
+        return redirect(route('quarter-finals.show', $tournament->id));
         
 
     }
