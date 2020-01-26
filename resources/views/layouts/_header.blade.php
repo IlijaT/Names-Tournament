@@ -9,7 +9,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
-                <li class="nav-item active"><a class="nav-link">Rang List</a></li>
+                <li class="nav-item active"><a href="{{ route('rankings') }}" class="nav-link">Rankings</a></li>
             </ul>
         </div>
     </nav>
