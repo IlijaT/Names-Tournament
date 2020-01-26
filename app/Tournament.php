@@ -43,7 +43,7 @@ class Tournament extends Model
     public function winner()
     {
       
-        return $this->users()->where('winner', 1)->find();
+        return $this->users()->where('winner', 1)->first();
         
     }   
 
@@ -90,6 +90,14 @@ class Tournament extends Model
             $user->tournaments()->updateExistingPivot($this->id, ['final' => true]);
         }
     
+    }
+
+    public function createWinner($winner) 
+    {
+        $winner->increment('wins_count');
+        $winner->increment('points', 40);
+        $winner->tournaments()->updateExistingPivot($this->id, ['winner' => true]);
+        
     }
 
 }

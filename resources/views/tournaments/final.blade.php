@@ -14,7 +14,7 @@
 
           @include('layouts._errors')
         
-          <form action="{{ route('finals.store', $tournament) }}" method="POST">
+          <form action="{{ route('winners.store', $tournament) }}" method="POST">
             @csrf
             <ul class="list-group">
 
