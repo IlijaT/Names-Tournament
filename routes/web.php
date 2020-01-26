@@ -17,4 +17,8 @@ Route::get('/', function () {
 
 Route::get('/tournaments/{tournament}', 'TournamentsController@show')->name('tournaments.show');
 Route::post('/tournaments', 'TournamentsController@store')->name('tournaments.store');
-Route::post('/tournaments/{tournament}/quarter-final', 'TournamentsController@quarterFinal')->name('quarter-final.store');
+Route::post('/tournaments/{tournament}/quarter-final', 'QuarterFinalsController@store')->name('quarter-final.store');
+Route::get('/tournaments/{tournament}/quarter-final', 'QuarterFinalsController@show')->name('quarter-final.show');
+
+Route::post('/tournaments/{tournament}/semi-final', 'SemiFinalsController@store')->name('semi-final.store');
+

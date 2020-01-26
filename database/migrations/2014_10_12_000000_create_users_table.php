@@ -17,10 +17,8 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->unsignedInteger('tournaments_count')->default(0);
             $table->unsignedInteger('matches_played')->default(0);
             $table->unsignedInteger('wins_count')->default(0);
-            $table->unsignedInteger('defeats_count')->default(0);
             $table->unsignedInteger('points')->default(0);
             $table->timestamps();
         });

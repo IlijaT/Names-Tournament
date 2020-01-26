@@ -8,23 +8,66 @@ class Tournament extends Model
 {
     protected $guarded = [];
 
+    public function getRoundNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
+
 
     public function users()
     {
         return $this->belongsToMany('App\User');
     }
 
+    public function quarterFinalists()
+    {
+      
+        return $this->users()->where('quarter_final', 1)->get();
+        
+    } 
+
+    public function semiFinalists()
+    {
+      
+        return $this->users()->where('semi_final', 1)->get();
+        
+    } 
+
+    public function finalists()
+    {
+      
+        return $this->users()->where('final', 1)->get();
+        
+    }  
+
+    public function winner()
+    {
+      
+        return $this->users()->where('winner', 1)->find();
+        
+    }   
+
+
     public function createFirstRound()
     {
-        $competitors = User::all()->random(16);
+        $competitors = User::all()->random(16)->shuffle();
+
+        foreach ($competitors as $user) {
+            $user->increment('matches_played');
+        }
+
         $this->users()->attach($competitors);
     }
 
-    
-
-    public function getRoundNameAttribute()
+    public function createQuarterFinal($quarterFinalists) 
     {
-        return "{$this->first_name} {$this->last_name}";
+        
+        foreach ($quarterFinalists as $user) {
+            $user->increment('matches_played');
+            $user->increment('wins_count');
+            $user->increment('points', 10);
+            $user->tournaments()->updateExistingPivot($this->id, ['quarter_final' => true]);
+        }
     }
 
 }

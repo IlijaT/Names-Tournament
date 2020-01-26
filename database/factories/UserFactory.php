@@ -23,7 +23,6 @@ $factory->define(User::class, function (Faker $faker) {
         'last_name' => $faker->name,
         'matches_played' => 0,
         'wins_count' => 0,
-        'defeats_count' => 0,
         'points' => 0,
     ];
 });
