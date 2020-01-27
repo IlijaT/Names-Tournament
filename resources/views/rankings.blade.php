@@ -13,10 +13,5 @@
     @livewire('rankings-table')
 </div>
 
- 
-
 @endsection
 
-@section('footer')
-    @include('layouts._footer')    
-@endsection

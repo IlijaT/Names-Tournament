@@ -1,8 +1,8 @@
 <div>
-    <div class="row mt-5 mb-4">
+    <div class="row pt-5 mb-4">
         <div class="col form-inline">
             Per Page &nbsp;
-            <select class="form-control">
+            <select wire:model="perPage" class="form-control">
                 <option>10</option>
                 <option>25</option>
                 <option>50</option>
@@ -20,19 +20,19 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col"><a href="http://">Ime</a></th>
-                    <th scope="col"><a href="http://">Br. Utakmica</a></th>
-                    <th scope="col"><a href="http://">Br. Pobeda</a></th>
-                    <th scope="col"><a href="http://">Br. Poraza</a></th>
-                    <th scope="col"><a href="http://">pobede/porazi</a></th>
-                    <th scope="col"><a href="http://">Br. Poraza</a></th>
-                    <th scope="col"><a href="http://">Ukupno Bodova</a></th>
+                    <th scope="col"><a wire:click.prevent="sortBy('first_name')" role="button" href="#">Ime</a></th>
+                    <th scope="col"><a wire:click.prevent="sortBy('matches_played')" role="button" href="#">Br. Utakmica</a></th>
+                    <th scope="col"><a wire:click.prevent="sortBy('name')" role="button" href="#">Br. Pobeda</a></th>
+                    <th scope="col"><a wire:click.prevent="sortBy('name')" role="button" href="#">Br. Poraza</a></th>
+                    <th scope="col"><a wire:click.prevent="sortBy('name')" role="button" href="#">pobede/porazi</a></th>
+                    <th scope="col"><a wire:click.prevent="sortBy('name')" role="button" href="#">Br. Poraza</a></th>
+                    <th scope="col"><a wire:click.prevent="sortBy('name')" role="button" href="#">Ukupno Bodova</a></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($users as $user)
+                @foreach($users as $key => $user)
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row">{{$users->firstItem() + $key}}</th>
                         <td>{{ $user->full_name }}</td>
                         <td>{{ $user->matches_played }}</td>
                         <td>{{ $user->wins_count }}</td>
@@ -49,11 +49,11 @@
     <div class="row">
 
         <div class="col">
-            {{-- pagination --}}
+            {{ $users->links() }}
         </div>
 
         <div class="col text-right text-muted">
-            Showing X to X out of X
+            Showing {{ $users->firstItem() }} to {{ $users->lastItem() }} out of {{ $users->total() }}
         </div>
     </div>
 </div>
