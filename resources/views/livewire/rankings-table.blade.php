@@ -3,14 +3,14 @@
         <div class="col form-inline">
             Per Page &nbsp;
             <select wire:model="perPage" class="form-control">
-                <option>10</option>
-                <option>25</option>
-                <option>50</option>
+                <option>20</option>
+                <option>30</option>
+                <option>40</option>
             </select>
         </div>
 
         <div class="col">
-            <input type="text" class="form-control" placeholder="search...">
+            <input wire:model="search" type="text" class="form-control" placeholder="search...">
         </div>
         
     </div>
@@ -20,13 +20,22 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col"><a wire:click.prevent="sortBy('first_name')" role="button" href="#">Ime</a></th>
-                    <th scope="col"><a wire:click.prevent="sortBy('matches_played')" role="button" href="#">Br. Utakmica</a></th>
-                    <th scope="col"><a wire:click.prevent="sortBy('name')" role="button" href="#">Br. Pobeda</a></th>
-                    <th scope="col"><a wire:click.prevent="sortBy('name')" role="button" href="#">Br. Poraza</a></th>
-                    <th scope="col"><a wire:click.prevent="sortBy('name')" role="button" href="#">pobede/porazi</a></th>
-                    <th scope="col"><a wire:click.prevent="sortBy('name')" role="button" href="#">Br. Poraza</a></th>
-                    <th scope="col"><a wire:click.prevent="sortBy('name')" role="button" href="#">Ukupno Bodova</a></th>
+                    <th scope="col"><a wire:click.prevent="sortBy('first_name')" role="button" href="#">
+                        Ime
+                        @include('includes._sort-icon', ['field' => 'first_name'])
+                    </a></th>
+                    <th scope="col"><a wire:click.prevent="sortBy('matches_played')" role="button" href="#">
+                        Br. Utakmica
+                        @include('includes._sort-icon', ['field' => 'matches_played'])
+                    </a></th>
+                    <th scope="col"><a wire:click.prevent="sortBy('wins_count')" role="button" href="#">
+                        Br. Pobeda
+                        @include('includes._sort-icon', ['field' => 'wins_count'])
+                    </a></th>
+                    <th scope="col"><a wire:click.prevent="sortBy('points')" role="button" href="#">
+                        Ukupno Bodova
+                        @include('includes._sort-icon', ['field' => 'points'])
+                    </a></th>
                 </tr>
             </thead>
             <tbody>
@@ -36,9 +45,6 @@
                         <td>{{ $user->full_name }}</td>
                         <td>{{ $user->matches_played }}</td>
                         <td>{{ $user->wins_count }}</td>
-                        <td>{{ $user->matches_played - $user->wins_count }}</td>
-                        <td>{{ 75 }}</td>
-                        <td>{{ 75 }}</td>
                         <td>{{ $user->points }}</td>
                     </tr>
                 @endforeach

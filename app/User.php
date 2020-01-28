@@ -24,4 +24,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Tournament', 'tournament_user');
     }
+
+    public function scopeSearch($query, $word)
+    {
+        return $query->where('first_name', 'like', "{$word}%");
+    }
 }

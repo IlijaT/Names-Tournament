@@ -10,9 +10,10 @@ class RankingsTable extends Component
 {
     use WithPagination;
 
-    public $perPage = 10;
+    public $perPage = 20;
     public $sortField = 'first_name';
     public $sortAsc = true;
+    public $search = '';
 
     public function sortBy($field)
     {
@@ -27,7 +28,7 @@ class RankingsTable extends Component
     public function render()
     {
         return view('livewire.rankings-table', [
-            'users' => User::query()
+            'users' => User::search($this->search)
                 ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                 ->paginate($this->perPage)
         ]);
