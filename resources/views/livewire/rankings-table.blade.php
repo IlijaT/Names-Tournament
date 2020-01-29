@@ -3,9 +3,9 @@
         <div class="col form-inline">
             Per Page &nbsp;
             <select wire:model="perPage" class="form-control">
+                <option>10</option>
                 <option>20</option>
                 <option>30</option>
-                <option>40</option>
             </select>
         </div>
 

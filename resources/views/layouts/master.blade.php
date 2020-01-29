@@ -25,6 +25,18 @@
     
         <!-- Custom styles for this template -->
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+
+        <style type="text/css">
+            html, body {
+                height: 100%;
+                margin: 0;
+            }
+    
+            #wrapper {
+                min-height: 100%; 
+            }
+        </style>
+
         
         @livewireAssets
     </head>
@@ -32,7 +44,7 @@
         
         @yield('navbar')   
         
-        <div class="main_slider_area">
+        <div class="main_slider_area" id="wrapper">
 
             @yield('content') 
 

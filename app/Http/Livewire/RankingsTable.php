@@ -10,9 +10,9 @@ class RankingsTable extends Component
 {
     use WithPagination;
 
-    public $perPage = 20;
-    public $sortField = 'first_name';
-    public $sortAsc = true;
+    public $perPage = 10;
+    public $sortField = 'points';
+    public $sortAsc = false;
     public $search = '';
 
     public function sortBy($field)

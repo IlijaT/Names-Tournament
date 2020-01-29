@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="container mt-5">
+<div class="container pt-5">
     <section class="row justify-content-md-center">
          
       
@@ -14,7 +14,7 @@
 
           @include('layouts._errors')
         
-          <form action="{{ route('finals.store', $tournament) }}" method="POST">
+          <form action="{{ route('finals.store', $tournament) }}" method="POST" >
             @csrf
             <ul class="list-group">
 
@@ -23,7 +23,7 @@
                 <li class="list-group-item d-flex justify-content-between align-items-center mb-3 shadow-lg rounded-lg">
                   @foreach ($chunk as $user)
                     @if ($loop->odd)
-                      <div>
+                      <div class="h4">
                         {{ $user->full_name}}
                         <input 
                           type="radio" 
@@ -36,7 +36,7 @@
                           :
                       </div>
                     @else
-                      <div>
+                      <div class="h4">
                         {{-- <span class="badge badge-primary badge-pill">srce</span> --}}
                         <input 
                           type="radio" 
@@ -52,7 +52,7 @@
 
             </ul>
 
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center mt-3">
                 <button class="btn submit_btn" type="submit">Submit Results</button>
             </div>
           </form>
