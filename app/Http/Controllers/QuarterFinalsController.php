@@ -11,6 +11,10 @@ class QuarterFinalsController extends Controller
     
     public function show(Tournament $tournament) 
     {
+        if($tournament->isQuarterFinalFinished()) {
+            abort(404);
+        }
+
         $quarterFinalists = $tournament->quarterFinalists();
 
         return view('tournaments.quarter-final', compact('tournament', 'quarterFinalists'));

@@ -11,6 +11,11 @@ class FinalsController extends Controller
     
     public function show(Tournament $tournament) 
     {
+        
+        if($tournament->isFinished()) {
+            abort(404);
+        }
+
         $finalists = $tournament->finalists();
 
         return view('tournaments.final', compact('tournament', 'finalists'));  

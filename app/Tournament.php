@@ -59,6 +59,11 @@ class Tournament extends Model
         $this->users()->attach($competitors);
     }
 
+    public function isFirstRoundFinished() 
+    {
+        return count($this->quarterFinalists()) != 0 ? true : false; 
+    }
+
     public function createQuarterFinal($quarterFinalists) 
     {
         
@@ -70,6 +75,11 @@ class Tournament extends Model
         }
     }
 
+    public function isQuarterFinalFinished() 
+    {
+        return count($this->semiFinalists()) != 0 ? true : false; 
+    }
+
     public function createSemiFinal($semifinalists) 
     {
         foreach ($semifinalists as $user) {
@@ -79,6 +89,11 @@ class Tournament extends Model
             $user->tournaments()->updateExistingPivot($this->id, ['semi_final' => true]);
         }
     
+    }
+
+    public function isSemiFinalFinished() 
+    {
+        return count($this->finalists()) != 0 ? true : false; 
     }
 
     public function createFinal($finalists) 
@@ -98,6 +113,12 @@ class Tournament extends Model
         $winner->increment('points', 40);
         $winner->tournaments()->updateExistingPivot($this->id, ['winner' => true]);
         
+    }
+
+    public function isFinished()
+    {
+        
+        return $this->winner() ? true : false;
     }
 
 }

@@ -11,6 +11,10 @@ class SemiFinalsController extends Controller
 
     public function show(Tournament $tournament) 
     {
+        if($tournament->isSemiFinalFinished()) {
+            abort(404);
+        }
+
         $semiFinalists = $tournament->semiFinalists();
 
         return view('tournaments.semi-final', compact('tournament', 'semiFinalists'));  
