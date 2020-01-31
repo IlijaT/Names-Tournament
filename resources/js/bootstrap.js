@@ -11,6 +11,17 @@ try {
     require('bootstrap');
 } catch (e) {}
 
+window.Vue = require('vue');
+
+
+const files = require.context('./', true, /\.vue$/i)
+files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+
+const app = new Vue({
+    el: '#wrapper',
+});
+
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the

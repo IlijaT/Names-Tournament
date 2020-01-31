@@ -17,7 +17,9 @@
             </form>
         </span>
         <div class="tp-caption tp-resizeme single_img">
-            <img src="img/home-slider/slider-m-1.png" alt="">
+            <img style=" width: 100%; 
+            height: 100%; 
+            object-fit: contain;" src="img/home-slider/slider-m-1.png" alt="">
         </div>
             
     </section>

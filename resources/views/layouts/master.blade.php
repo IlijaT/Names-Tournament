@@ -40,11 +40,11 @@
         
         @livewireAssets
     </head>
-    <body>
-        
+    <body >
         @yield('navbar')   
         
         <div class="main_slider_area" id="wrapper">
+                <example-component></example-component>
 
             @yield('content') 
 
