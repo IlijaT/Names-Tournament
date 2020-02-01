@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container pt-5">
+<div class="container pt-1">
     <section class="row justify-content-md-center">
          
       
@@ -20,40 +20,18 @@
 
               @foreach ($tournament->users->chunk(2) as $index => $chunk)
                 
-                <li class="list-group-item d-flex justify-content-center align-items-center mb-3 shadow-lg rounded-lg">
+                <li class="list-group-item d-flex justify-content-between   mb-3 shadow-lg rounded-lg">
                   @foreach ($chunk as $user)
                     @if ($loop->odd)
-                    <first-participant @selectedname="unselectName()" :user="{{$user}}" :index="{{$index}}"></first-participant>
-                      {{-- <div class="h4">
-                        {{ $user->full_name}}
-                        <input 
-                          type="radio" 
-                          name="participants[{{$index}}]" 
-                          value="{{$user->id}}" 
-                          {{ isset(old("participants")[$index]) && old("participants")[$index] == $user->id ? 'checked' : '' }}>
-                      </div>  --}}
-                    <div class="ml-auto">
-                        
-                    </div>
+                      <first-participant :user="{{$user}}" :index="{{$index}}" :old="{{ old("participants")[$index] ?? 'null' }}"></first-participant>
                     @else
-                    <second-participant :user="{{$user}}" :index="{{$index}}"></second-participant>
-                      
-                      {{-- <div class="h4">
-                        <input 
-                          type="radio" 
-                          name="participants[{{$index}}]" 
-                          value="{{$user->id}}"
-                          {{ isset(old("participants")[$index]) && old("participants")[$index] == $user->id ? 'checked' : '' }}>
-                        {{ $user->full_name}}
-                      </div>  --}}
+                      <second-participant :user="{{$user}}" :index="{{$index}}" :old="{{ old("participants")[$index] ?? 'null' }}"></second-participant>
                     @endif
                   @endforeach
                 </li>
               @endforeach
 
-
             </ul>
-
             <div class="d-flex justify-content-center mt-3">
                 <button class="btn submit_btn" type="submit">Submit Results</button>
             </div>

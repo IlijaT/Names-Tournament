@@ -4,21 +4,21 @@
                 <div class="row footer_widget_inner">
                     <div class="col-lg-4 col-sm-6">
                         <aside class="f_widget f_about_widget">
-                            <img src="img/footer-logo.png" alt="">
+                            <img src="{{ asset('img/footer-logo.png') }}" alt="">
                             <p>Thank You For Helping US!</p>
                         </aside>
                     </div>
                     <div class="col-lg-4 col-sm-6">
                         <aside class="f_widget f_insta_widget">
                             <ul>
-                                <li><a href="#"><img src="img/instagram/ins-1.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="img/instagram/ins-2.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="img/instagram/ins-3.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="img/instagram/ins-4.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="img/instagram/ins-5.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="img/instagram/ins-6.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="img/instagram/ins-7.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="img/instagram/ins-8.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="{{asset('img/instagram/ins-1.jpg')}}" alt=""></a></li>
+                                <li><a href="#"><img src="{{asset('img/instagram/ins-2.jpg')}}" alt=""></a></li>
+                                <li><a href="#"><img src="{{asset('img/instagram/ins-3.jpg')}}" alt=""></a></li>
+                                <li><a href="#"><img src="{{asset('img/instagram/ins-4.jpg')}}" alt=""></a></li>
+                                <li><a href="#"><img src="{{asset('img/instagram/ins-5.jpg')}}" alt=""></a></li>
+                                <li><a href="#"><img src="{{asset('img/instagram/ins-6.jpg')}}" alt=""></a></li>
+                                <li><a href="#"><img src="{{asset('img/instagram/ins-7.jpg')}}" alt=""></a></li>
+                                <li><a href="#"><img src="{{asset('img/instagram/ins-8.jpg')}}" alt=""></a></li>
                             </ul>
                         </aside>
                     </div>

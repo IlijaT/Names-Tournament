@@ -1,16 +1,20 @@
 <template>
-  <div :class="!selected ? 'text-secondary' : ''"  class="h4" @click="selctName" style="cursor:pointer">
-    {{ user.first_name }} {{ user.last_name }}
+  <div :class="!selected ? 'text-secondary' : ''"  class="h4 mr-2" @click="selctName" style="cursor:pointer">
+    <div class="d-flex align-items-center">
+      <div>{{ user.first_name }} {{ user.last_name }}</div>
+      
+      <div class="d-flex">
+          <input style="visibility: hidden;" 
+            type="radio" 
+            :name="'participants['  + index  + ']'" 
+            :value="user.id" 
+            :checked="picked" 
+          >
+        <i v-if="!selected" class="far fa-heart text-secondary"></i>
+        <i v-else class="fas fa-heart text-danger"></i>
+      </div>
 
-    <input style="visibility: hidden;" 
-      type="radio" 
-      :name="'participants['  + index  + ']'" 
-      :value="user.id" 
-      :checked="picked" 
-     >
-
-     <i v-if="!selected" class="far fa-heart text-secondary ml-3"></i>
-     <i v-else class="fas fa-heart text-danger ml-3"></i>
+    </div>
 
   </div>
 
@@ -18,9 +22,14 @@
 
 <script>
 export default {
-  props: ['user', 'index'],
+  props: ['user', 'index', 'old'],
 
   created() {
+    if(this.user.id == this.old) {
+      this.selected = true;
+      this.picked = true;
+    }
+     
     events.$on('selectedname', this.onSelectedName);
   },
 

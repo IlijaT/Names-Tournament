@@ -25,15 +25,15 @@
                         @include('includes._sort-icon', ['field' => 'first_name'])
                     </a></th>
                     <th scope="col"><a wire:click.prevent="sortBy('matches_played')" role="button" href="#">
-                        Br. Utakmica
+                        Utakmice
                         @include('includes._sort-icon', ['field' => 'matches_played'])
                     </a></th>
                     <th scope="col"><a wire:click.prevent="sortBy('wins_count')" role="button" href="#">
-                        Br. Pobeda
+                        Pobede
                         @include('includes._sort-icon', ['field' => 'wins_count'])
                     </a></th>
                     <th scope="col"><a wire:click.prevent="sortBy('points')" role="button" href="#">
-                        Ukupno Bodova
+                        Poeni
                         @include('includes._sort-icon', ['field' => 'points'])
                     </a></th>
                 </tr>

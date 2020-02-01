@@ -1926,9 +1926,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['user', 'index'],
+  props: ['user', 'index', 'old'],
   created: function created() {
+    if (this.user.id == this.old) {
+      this.selected = true;
+      this.picked = true;
+    }
+
     events.$on('selectedname', this.onSelectedName);
   },
   data: function data() {
@@ -1988,9 +1997,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['user', 'index'],
+  props: ['user', 'index', 'old'],
   created: function created() {
+    if (this.user.id == this.old) {
+      this.selected = true;
+      this.picked = true;
+    }
+
     events.$on('selectedname', this.onSelectedName);
   },
   data: function data() {
@@ -2003,7 +2022,6 @@ __webpack_require__.r(__webpack_exports__);
     selctName: function selctName() {
       this.selected = !this.selected;
       this.picked = !this.picked;
-      console.log('emitovan');
 
       if (this.selected) {
         events.$emit('selectedname', {
@@ -20282,28 +20300,29 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "h4",
+      staticClass: "h4 mr-2",
       class: !_vm.selected ? "text-secondary" : "",
       staticStyle: { cursor: "pointer" },
       on: { click: _vm.selctName }
     },
     [
-      _vm._v(
-        "\n  " +
-          _vm._s(_vm.user.first_name) +
-          " " +
-          _vm._s(_vm.user.last_name) +
-          "\n\n  "
-      ),
-      _c("input", {
-        staticStyle: { visibility: "hidden" },
-        attrs: { type: "radio", name: "participants[" + _vm.index + "]" },
-        domProps: { value: _vm.user.id, checked: _vm.picked }
-      }),
-      _vm._v(" "),
-      !_vm.selected
-        ? _c("i", { staticClass: "far fa-heart text-secondary ml-3" })
-        : _c("i", { staticClass: "fas fa-heart text-danger ml-3" })
+      _c("div", { staticClass: "d-flex align-items-center" }, [
+        _c("div", [
+          _vm._v(_vm._s(_vm.user.first_name) + " " + _vm._s(_vm.user.last_name))
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "d-flex" }, [
+          _c("input", {
+            staticStyle: { visibility: "hidden" },
+            attrs: { type: "radio", name: "participants[" + _vm.index + "]" },
+            domProps: { value: _vm.user.id, checked: _vm.picked }
+          }),
+          _vm._v(" "),
+          !_vm.selected
+            ? _c("i", { staticClass: "far fa-heart text-secondary" })
+            : _c("i", { staticClass: "fas fa-heart text-danger" })
+        ])
+      ])
     ]
   )
 }
@@ -20332,28 +20351,35 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "h4",
+      staticClass: "h4 ml-2",
       class: !_vm.selected ? "text-secondary" : "",
       staticStyle: { cursor: "pointer" },
       on: { click: _vm.selctName }
     },
     [
-      _c("input", {
-        staticStyle: { visibility: "hidden" },
-        attrs: { type: "radio", name: "participants[" + _vm.index + "]" },
-        domProps: { value: _vm.user.id, checked: _vm.picked }
-      }),
-      _vm._v(" "),
-      !_vm.selected
-        ? _c("i", { staticClass: "far fa-heart text-secondary mr-3" })
-        : _c("i", { staticClass: "fas fa-heart text-danger mr-3" }),
-      _vm._v(
-        "\n\n   " +
-          _vm._s(_vm.user.first_name) +
-          " " +
-          _vm._s(_vm.user.last_name) +
-          "\n"
-      )
+      _c("div", { staticClass: "d-flex align-items-center" }, [
+        _c("div", { staticClass: "d-flex" }, [
+          !_vm.selected
+            ? _c("i", { staticClass: "far fa-heart text-secondary" })
+            : _c("i", { staticClass: "fas fa-heart text-danger" }),
+          _vm._v(" "),
+          _c("input", {
+            staticStyle: { visibility: "hidden" },
+            attrs: { type: "radio", name: "participants[" + _vm.index + "]" },
+            domProps: { value: _vm.user.id, checked: _vm.picked }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _vm._v(
+            "\n      " +
+              _vm._s(_vm.user.first_name) +
+              " " +
+              _vm._s(_vm.user.last_name) +
+              "\n    "
+          )
+        ])
+      ])
     ]
   )
 }
