@@ -43,8 +43,7 @@
     <body >
         @yield('navbar')   
         
-        <div class="main_slider_area" id="wrapper">
-                <example-component></example-component>
+        <div class="main_slider_area pt-4" id="wrapper">
 
             @yield('content') 
 

@@ -1,10 +1,10 @@
 @extends('layouts.master')
 
-{{-- @section('navbar')
+@section('navbar')
 
 @include('layouts._header')
 
-@endsection --}}
+@endsection
 
 @section('content')
 

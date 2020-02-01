@@ -1,5 +1,5 @@
 <div>
-    <div class="row pt-5 mb-4">
+    <div class="row pt-2 mb-4">
         <div class="col form-inline">
             Per Page &nbsp;
             <select wire:model="perPage" class="form-control">
