@@ -23,6 +23,7 @@ class QuarterFinalsController extends Controller
 
     public function store(Tournament $tournament)
     {
+
         request()->validate([
             'participants' => 'required|array|min:8|max:8',
         ], [

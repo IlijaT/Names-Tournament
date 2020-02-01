@@ -20,10 +20,10 @@
 
               @foreach ($tournament->users->chunk(2) as $index => $chunk)
                 
-                <li class="list-group-item d-flex justify-content-between align-items-center mb-3 shadow-lg rounded-lg">
+                <li class="list-group-item d-flex justify-content-center align-items-center mb-3 shadow-lg rounded-lg">
                   @foreach ($chunk as $user)
                     @if ($loop->odd)
-                    <first-participant :user="{{$user}}" :index="{{$index}}"></first-participant>
+                    <first-participant @selectedname="unselectName()" :user="{{$user}}" :index="{{$index}}"></first-participant>
                       {{-- <div class="h4">
                         {{ $user->full_name}}
                         <input 
@@ -32,9 +32,9 @@
                           value="{{$user->id}}" 
                           {{ isset(old("participants")[$index]) && old("participants")[$index] == $user->id ? 'checked' : '' }}>
                       </div>  --}}
-                      <div>
-                          :
-                      </div>
+                    <div class="ml-auto">
+                        
+                    </div>
                     @else
                     <second-participant :user="{{$user}}" :index="{{$index}}"></second-participant>
                       

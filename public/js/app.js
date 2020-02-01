@@ -1925,17 +1925,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['user', 'index'],
+  created: function created() {
+    events.$on('selectedname', this.onSelectedName);
+  },
   data: function data() {
     return {
-      selected: false
+      selected: false,
+      picked: false
     };
   },
   methods: {
     selctName: function selctName() {
       this.selected = !this.selected;
-      console.log('selected');
+      this.picked = !this.picked;
+
+      if (this.selected) {
+        events.$emit('selectedname', {
+          "index": this.index,
+          "user": this.user
+        });
+      }
+    },
+    onSelectedName: function onSelectedName(name) {
+      if (this.index != name.index || this.user.id == name.user.id) {
+        return false;
+      }
+
+      this.selected = false;
+      this.picked = false;
     }
   }
 });
@@ -1967,17 +1987,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['user', 'index'],
+  created: function created() {
+    events.$on('selectedname', this.onSelectedName);
+  },
   data: function data() {
     return {
-      selected: false
+      selected: false,
+      picked: false
     };
   },
   methods: {
     selctName: function selctName() {
       this.selected = !this.selected;
-      console.log('selected');
+      this.picked = !this.picked;
+      console.log('emitovan');
+
+      if (this.selected) {
+        events.$emit('selectedname', {
+          "index": this.index,
+          "user": this.user
+        });
+      }
+    },
+    onSelectedName: function onSelectedName(name) {
+      if (this.index != name.index || this.user.id == name.user.id) {
+        return false;
+      }
+
+      this.selected = false;
+      this.picked = false;
     }
   }
 });
@@ -20242,6 +20283,7 @@ var render = function() {
     "div",
     {
       staticClass: "h4",
+      class: !_vm.selected ? "text-secondary" : "",
       staticStyle: { cursor: "pointer" },
       on: { click: _vm.selctName }
     },
@@ -20256,12 +20298,12 @@ var render = function() {
       _c("input", {
         staticStyle: { visibility: "hidden" },
         attrs: { type: "radio", name: "participants[" + _vm.index + "]" },
-        domProps: { value: _vm.user.id }
+        domProps: { value: _vm.user.id, checked: _vm.picked }
       }),
       _vm._v(" "),
       !_vm.selected
-        ? _c("i", { staticClass: "far fa-heart text-secondary ml-2" })
-        : _c("i", { staticClass: "fas fa-heart text-danger ml-2" })
+        ? _c("i", { staticClass: "far fa-heart text-secondary ml-3" })
+        : _c("i", { staticClass: "fas fa-heart text-danger ml-3" })
     ]
   )
 }
@@ -20291,6 +20333,7 @@ var render = function() {
     "div",
     {
       staticClass: "h4",
+      class: !_vm.selected ? "text-secondary" : "",
       staticStyle: { cursor: "pointer" },
       on: { click: _vm.selctName }
     },
@@ -20298,12 +20341,12 @@ var render = function() {
       _c("input", {
         staticStyle: { visibility: "hidden" },
         attrs: { type: "radio", name: "participants[" + _vm.index + "]" },
-        domProps: { value: _vm.user.id }
+        domProps: { value: _vm.user.id, checked: _vm.picked }
       }),
       _vm._v(" "),
       !_vm.selected
-        ? _c("i", { staticClass: "far fa-heart text-secondary mr-2" })
-        : _c("i", { staticClass: "fas fa-heart text-danger mr-2" }),
+        ? _c("i", { staticClass: "far fa-heart text-secondary mr-3" })
+        : _c("i", { staticClass: "fas fa-heart text-danger mr-3" }),
       _vm._v(
         "\n\n   " +
           _vm._s(_vm.user.first_name) +
@@ -32539,6 +32582,7 @@ var files = __webpack_require__("./resources/js sync recursive \\.vue$/");
 files.keys().map(function (key) {
   return Vue.component(key.split('/').pop().split('.')[0], files(key)["default"]);
 });
+window.events = new Vue();
 var app = new Vue({
   el: '#wrapper'
 });
