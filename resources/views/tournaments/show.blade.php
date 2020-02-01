@@ -23,32 +23,34 @@
                 <li class="list-group-item d-flex justify-content-between align-items-center mb-3 shadow-lg rounded-lg">
                   @foreach ($chunk as $user)
                     @if ($loop->odd)
-                      <div class="h4">
+                    <first-participant :user="{{$user}}" :index="{{$index}}"></first-participant>
+                      {{-- <div class="h4">
                         {{ $user->full_name}}
                         <input 
                           type="radio" 
                           name="participants[{{$index}}]" 
                           value="{{$user->id}}" 
                           {{ isset(old("participants")[$index]) && old("participants")[$index] == $user->id ? 'checked' : '' }}>
-                        {{-- <span class="badge badge-primary badge-pill">srce</span> --}}
-                      </div> 
+                      </div>  --}}
                       <div>
                           :
                       </div>
                     @else
-                      <div class="h4">
-                        {{-- <span class="badge badge-primary badge-pill">srce</span> --}}
+                    <second-participant :user="{{$user}}" :index="{{$index}}"></second-participant>
+                      
+                      {{-- <div class="h4">
                         <input 
                           type="radio" 
                           name="participants[{{$index}}]" 
                           value="{{$user->id}}"
                           {{ isset(old("participants")[$index]) && old("participants")[$index] == $user->id ? 'checked' : '' }}>
                         {{ $user->full_name}}
-                      </div> 
+                      </div>  --}}
                     @endif
                   @endforeach
                 </li>
               @endforeach
+
 
             </ul>
 

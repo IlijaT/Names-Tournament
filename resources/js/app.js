@@ -18,7 +18,8 @@ require('./theme');
 
 
 
-Vue.component('names-pair', require('./components/NamesPair.vue').default);
+Vue.component('first-participant', require('./components/FirstParticipant.vue').default);
+Vue.component('second-participant', require('./components/SecondParticipant.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

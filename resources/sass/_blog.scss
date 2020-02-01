@@ -14,8 +14,8 @@
         max-width: 120px;
         width: 100%;
         background: #6fbcfe; /* Old browsers */
-        background: -moz-linear-gradient(left, #6fbcfe 0%, #9b8aff 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(left, #6fbcfe 0%,#9b8aff 100%); /* Chrome10-25,Safari5.1-6 */
+        background: -moz-linear-gradient(to left, #6fbcfe 0%, #9b8aff 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(to left, #6fbcfe 0%,#9b8aff 100%); /* Chrome10-25,Safari5.1-6 */
         background: linear-gradient(to right, #6fbcfe 0%,#9b8aff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6fbcfe', endColorstr='#9b8aff',GradientType=1 ); /* IE6-9 */
         text-align: center;

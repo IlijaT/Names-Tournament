@@ -8,19 +8,18 @@ use Illuminate\Http\Request;
 
 class QuarterFinalsController extends Controller
 {
-    
-    public function show(Tournament $tournament) 
+
+    public function show(Tournament $tournament)
     {
-        if($tournament->isQuarterFinalFinished()) {
+        if ($tournament->isQuarterFinalFinished()) {
             abort(404);
         }
 
         $quarterFinalists = $tournament->quarterFinalists();
 
         return view('tournaments.quarter-final', compact('tournament', 'quarterFinalists'));
-    
     }
-    
+
 
     public function store(Tournament $tournament)
     {
@@ -33,11 +32,7 @@ class QuarterFinalsController extends Controller
         $quarterFinalists = User::findMany(request('participants'));
 
         $tournament->createQuarterFinal($quarterFinalists);
-        
+
         return redirect(route('quarter-finals.show', $tournament->id));
-        
-
     }
-
-
 }

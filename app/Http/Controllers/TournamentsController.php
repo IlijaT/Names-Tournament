@@ -12,7 +12,7 @@ class TournamentsController extends Controller
 
     public function show(Tournament $tournament)
     {
-        if($tournament->isFirstRoundFinished()){
+        if ($tournament->isFirstRoundFinished()) {
             abort(404);
         }
         return view('tournaments.show', compact('tournament'));
@@ -25,6 +25,4 @@ class TournamentsController extends Controller
 
         return redirect(route('tournaments.show', $tournament));
     }
-
-
 }
