@@ -3,9 +3,9 @@
         <div class="col form-inline">
             Per Page &nbsp;
             <select wire:model="perPage" class="form-control">
-                <option>10</option>
                 <option>20</option>
                 <option>30</option>
+                <option>40</option>
             </select>
         </div>
 
@@ -54,11 +54,11 @@
 
     <div class="row">
 
-        <div class="col">
-            {{ $users->links() }}
+        <div class=" col-sm-8">
+            {{ $users->onEachSide(1)->links() }}
         </div>
 
-        <div class="col text-right text-muted">
+        <div class="col-sm-4 text-right text-muted">
             Showing {{ $users->firstItem() }} to {{ $users->lastItem() }} out of {{ $users->total() }}
         </div>
     </div>

@@ -22,9 +22,7 @@
                   
                  
             </span>
-            <div class="tp-caption tp-resizeme single_img">
-                <img src="{{ asset('img/home-slider/slider-m-1.png') }}" alt="">
-            </div>
+           
                 
         </section>
     </div>
