@@ -29,4 +29,13 @@ class User extends Authenticatable
     {
         return $query->where('first_name', 'like', "{$word}%");
     }
+
+    function getSuccessPercentageAttribute()
+    {
+        if($this->attributes['matches_played'] === 0) {
+            return 0;
+        }
+
+        return  round(($this->attributes['wins_count'] / $this->attributes['matches_played']) * 100, 1);
+    }
 }
