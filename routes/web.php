@@ -30,12 +30,7 @@ Route::post('/tournaments/{tournament}/final', 'FinalsController@store')->name('
 Route::get('/tournaments/{tournament}/winner', 'WinnersController@show')->name('winners.show');
 Route::post('/tournaments/{tournament}/winner', 'WinnersController@store')->name('winners.store');
 
-// Route::get('/rankings', 'RankingsController@index')->name('rankings');
-
-Route::get('/rankings',  function () {
-    return 'rankings';
-})->name('rankings');
-
+Route::get('/rankings', 'RankingsController@index')->name('rankings');
 
 Route::get('/test', function () {
     return 'test';
