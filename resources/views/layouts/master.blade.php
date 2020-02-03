@@ -37,13 +37,13 @@
             }
         </style>
 
-        
-        @livewireAssets
+        @livewireAssets(['base_url' => ENV('APP_URL')]);
+        {{-- @livewireAssets --}}
     </head>
     <body >
         @yield('navbar')   
         
-        <div class="main_slider_area pt-4" id="wrapper">
+        <div class="main_slider_area pt-2" id="wrapper">
 
             @yield('content') 
 
