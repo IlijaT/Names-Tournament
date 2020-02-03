@@ -10,6 +10,7 @@
 
 
 <div class="container">
+    {{ dd('pre livewire') }}
     @livewire('rankings-table')
 </div>
 
