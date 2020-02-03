@@ -10,8 +10,8 @@
 
 
 <div class="container">
-    {{ dd('pre livewire') }}
     @livewire('rankings-table')
+    {{ dd('posle verovano tpuca livewire') }}
 </div>
 
 @endsection
