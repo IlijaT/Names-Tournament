@@ -20300,7 +20300,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "h4 mr-4 p-2",
+      staticClass: "h5 mr-2 py-2",
       class: !_vm.selected ? "text-secondary" : "",
       staticStyle: { width: "100%", cursor: "pointer" },
       on: { click: _vm.selctName }
@@ -20351,7 +20351,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "h4 ml-4 p-2",
+      staticClass: "h5 ml-2 py-2",
       class: !_vm.selected ? "text-secondary" : "",
       staticStyle: { width: "100%", cursor: "pointer" },
       on: { click: _vm.selctName }

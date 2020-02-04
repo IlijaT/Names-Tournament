@@ -1,5 +1,5 @@
 <template>
-  <div :class="!selected ? 'text-secondary' : ''"  class="h4 ml-4 p-2" @click="selctName" style="width: 100%;cursor:pointer">
+  <div :class="!selected ? 'text-secondary' : ''"  class="h5 ml-2 py-2" @click="selctName" style="width: 100%;cursor:pointer">
     <div class="d-flex align-items-center">
       <div class="d-flex">
         <i v-if="!selected" class="far fa-heart text-danger"></i>

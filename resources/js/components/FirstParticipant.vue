@@ -1,5 +1,5 @@
 <template>
-  <div :class="!selected ? 'text-secondary' : ''"  class="h4 mr-4 p-2" @click="selctName" style="width: 100%;cursor:pointer">
+  <div :class="!selected ? 'text-secondary' : ''"  class="h5 mr-2 py-2" @click="selctName" style="width: 100%;cursor:pointer">
     <div class="d-flex align-items-center" >
       <div class="mr-auto">{{ user.first_name }} {{ user.last_name }}</div>
       
