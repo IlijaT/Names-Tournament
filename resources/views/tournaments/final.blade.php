@@ -10,7 +10,7 @@
       
       <div class="col-sm-12 col-md-8">
         
-        <h1 class="text-center mt-4 mb-4 p-4">Final</h1>
+        <h1 class="text-center mt-2 mb-4 p-4">Final</h1>
 
           @include('layouts._errors')
         
@@ -22,6 +22,7 @@
                   @foreach ($finalists as $index => $user)
                   @if ($loop->odd)
                     <first-participant :user="{{$user}}" :index="0" :old="{{ old("participants")[$index] ?? 'null' }}"></first-participant>
+                    <div>:</div>
                   @else
                     <second-participant :user="{{$user}}" :index="0" :old="{{ old("participants")[$index] ?? 'null' }}"></second-participant>
                   @endif

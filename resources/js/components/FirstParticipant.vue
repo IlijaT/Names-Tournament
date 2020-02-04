@@ -1,7 +1,7 @@
 <template>
-  <div :class="!selected ? 'text-secondary' : ''"  class="h4 mr-2" @click="selctName" style="cursor:pointer">
-    <div class="d-flex align-items-center">
-      <div>{{ user.first_name }} {{ user.last_name }}</div>
+  <div :class="!selected ? 'text-secondary' : ''"  class="h4 mr-4 p-2" @click="selctName" style="width: 100%;cursor:pointer">
+    <div class="d-flex align-items-center" >
+      <div class="mr-auto">{{ user.first_name }} {{ user.last_name }}</div>
       
       <div class="d-flex">
           <input style="visibility: hidden;" 
@@ -10,7 +10,7 @@
             :value="user.id" 
             :checked="picked" 
           >
-        <i v-if="!selected" class="far fa-heart text-secondary"></i>
+        <i v-if="!selected" class="far fa-heart text-danger"></i>
         <i v-else class="fas fa-heart text-danger"></i>
       </div>
 

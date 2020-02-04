@@ -20,10 +20,11 @@
 
               @foreach ($tournament->users->chunk(2) as $index => $chunk)
                 
-                <li class="list-group-item d-flex justify-content-between   mb-3 shadow-lg rounded-lg">
+                <li class="list-group-item d-flex justify-content-between align-items-center mb-3 shadow-lg rounded-lg">
                   @foreach ($chunk as $user)
                     @if ($loop->odd)
                       <first-participant :user="{{$user}}" :index="{{$index}}" :old="{{ old("participants")[$index] ?? 'null' }}"></first-participant>
+                      <div>:</div>
                     @else
                       <second-participant :user="{{$user}}" :index="{{$index}}" :old="{{ old("participants")[$index] ?? 'null' }}"></second-participant>
                     @endif

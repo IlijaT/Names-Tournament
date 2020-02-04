@@ -1,8 +1,8 @@
 <template>
-  <div :class="!selected ? 'text-secondary' : ''"  class="h4 ml-2" @click="selctName" style="cursor:pointer">
+  <div :class="!selected ? 'text-secondary' : ''"  class="h4 ml-4 p-2" @click="selctName" style="width: 100%;cursor:pointer">
     <div class="d-flex align-items-center">
       <div class="d-flex">
-          <i v-if="!selected" class="far fa-heart text-secondary"></i>
+        <i v-if="!selected" class="far fa-heart text-danger"></i>
         <i v-else class="fas fa-heart text-danger"></i>
         <input style="visibility: hidden;" 
           type="radio" 
@@ -12,7 +12,7 @@
         >
       </div>
 
-      <div>
+      <div class="ml-auto">
         {{ user.first_name }} {{ user.last_name }}
       </div>
     </div>

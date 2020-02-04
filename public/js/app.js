@@ -20300,14 +20300,14 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "h4 mr-2",
+      staticClass: "h4 mr-4 p-2",
       class: !_vm.selected ? "text-secondary" : "",
-      staticStyle: { cursor: "pointer" },
+      staticStyle: { width: "100%", cursor: "pointer" },
       on: { click: _vm.selctName }
     },
     [
       _c("div", { staticClass: "d-flex align-items-center" }, [
-        _c("div", [
+        _c("div", { staticClass: "mr-auto" }, [
           _vm._v(_vm._s(_vm.user.first_name) + " " + _vm._s(_vm.user.last_name))
         ]),
         _vm._v(" "),
@@ -20319,7 +20319,7 @@ var render = function() {
           }),
           _vm._v(" "),
           !_vm.selected
-            ? _c("i", { staticClass: "far fa-heart text-secondary" })
+            ? _c("i", { staticClass: "far fa-heart text-danger" })
             : _c("i", { staticClass: "fas fa-heart text-danger" })
         ])
       ])
@@ -20351,16 +20351,16 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "h4 ml-2",
+      staticClass: "h4 ml-4 p-2",
       class: !_vm.selected ? "text-secondary" : "",
-      staticStyle: { cursor: "pointer" },
+      staticStyle: { width: "100%", cursor: "pointer" },
       on: { click: _vm.selctName }
     },
     [
       _c("div", { staticClass: "d-flex align-items-center" }, [
         _c("div", { staticClass: "d-flex" }, [
           !_vm.selected
-            ? _c("i", { staticClass: "far fa-heart text-secondary" })
+            ? _c("i", { staticClass: "far fa-heart text-danger" })
             : _c("i", { staticClass: "fas fa-heart text-danger" }),
           _vm._v(" "),
           _c("input", {
@@ -20370,7 +20370,7 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _c("div", [
+        _c("div", { staticClass: "ml-auto" }, [
           _vm._v(
             "\n      " +
               _vm._s(_vm.user.first_name) +
@@ -32899,8 +32899,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Laravel projekti\Names-Tournament\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Laravel projekti\Names-Tournament\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Laravel_VueJS\Names-Tournament\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Laravel_VueJS\Names-Tournament\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

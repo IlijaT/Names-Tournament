@@ -24,6 +24,7 @@
                   @foreach ($chunk as $user)
                   @if ($loop->odd)
                     <first-participant :user="{{$user}}" :index="{{$index}}" :old="{{ old("participants")[$index] ?? 'null' }}"></first-participant>
+                    <div>:</div>
                   @else
                     <second-participant :user="{{$user}}" :index="{{$index}}" :old="{{ old("participants")[$index] ?? 'null' }}"></second-participant>
                   @endif
