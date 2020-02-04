@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
         'Lana', 'Lara', 'Lea', 'Lejla', 'Lela', 'Lena', 'Lenka', 'Lidija', 'Lilijana',
         'Ljiljana', 'Ljubica', 'Ljupka',
         'Magdalena', 'Maja', 'Mara', 'Marica', 'Marija', 'Marina', 'Marta', 'Martina', 'Maša', 'Mia', 'Mila', 'Miona', 'Milana',
-        'Milena', 'Milica', 'Miljana', 'Mina', 'Minja', 'Mirjana', 'Mirka', 'Mirna', 'Mitra', 'Mila',
+        'Milena', 'Milica', 'Miljana', 'Mina', 'Minja', 'Mirjana', 'Mirka', 'Mirna', 'Mitra',
         'Nada', 'Najda', 'Natalija', 'Nataša', 'Nađa', 'Neda', 'Neva', 'Nikoleta', 'Nikolija', 'Nikolina', 'Nina', 'Novka', 'Nora',
         'Olga', 'Olivera', 'Olja', 'Olgica',
         'Pava', 'Persa', 'Petra', 'Petrija',

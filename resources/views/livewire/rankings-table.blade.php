@@ -1,21 +1,25 @@
 <div>
-    <div class="row pt-5 mt-5 mb-4">
-        <div class="col form-inline">
-            Per Page &nbsp;
-            <select wire:model="perPage" class="form-control">
-                <option>20</option>
-                <option>30</option>
-                <option>40</option>
-            </select>
-        </div>
+    <div class="row pt-5 mt-5 mb-4" >
+        <div class="d-flex align-items-end">
 
-        <div class="col">
-            <input wire:model="search" type="text" class="form-control" placeholder="search...">
+            
+            <div class="mr-2">
+                Per Page &nbsp;
+                <select wire:model="perPage" class="form-control">
+                    <option>20</option>
+                    <option>30</option>
+                    <option>40</option>
+                </select>
+            </div>
+
+            <div class="ml-2">
+                <input wire:model="search" type="text" class="form-control" placeholder="search the name...">
+            </div>
         </div>
         
     </div>
 
-    <div class="row">
+    <div class="row table-responsive">
         <table class="table">
             <thead>
                 <tr>
@@ -55,7 +59,7 @@
     <div class="row">
 
         <div class=" col-sm-8">
-            {{ $users->onEachSide(1)->links() }}
+            {{  $users->onEachSide(1)->links() }}
         </div>
 
         <div class="col-sm-4 text-right text-muted">
@@ -63,3 +67,5 @@
         </div>
     </div>
 </div>
+
+ 
