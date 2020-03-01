@@ -27,6 +27,17 @@ class RankingsTable extends Component
 
     public function render()
     {
+        if( $this->sortField === 'success') {
+
+            $sql = $this->sortAsc ? '(matches_played / wins_count) desc' : '(matches_played / wins_count) asc';
+
+            return view('livewire.rankings-table', [
+                'users' => User::search($this->search)
+                    ->where('matches_played', '>', 0)
+                    ->orderByRaw($sql)
+                    ->paginate($this->perPage)
+            ]);
+        }
         return view('livewire.rankings-table', [
             'users' => User::search($this->search)
                 ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')

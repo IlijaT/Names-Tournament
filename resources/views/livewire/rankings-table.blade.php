@@ -24,22 +24,36 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col"><a wire:click.prevent="sortBy('first_name')" role="button" href="#">
+                    <th scope="col">
+                        <a wire:click.prevent="sortBy('first_name')" role="button" href="#">
                         Ime
                         @include('includes._sort-icon', ['field' => 'first_name'])
-                    </a></th>
-                    <th scope="col"><a wire:click.prevent="sortBy('matches_played')" role="button" href="#">
-                        Utakmice
-                        @include('includes._sort-icon', ['field' => 'matches_played'])
-                    </a></th>
-                    <th scope="col"><a wire:click.prevent="sortBy('wins_count')" role="button" href="#">
-                        Pobede
-                        @include('includes._sort-icon', ['field' => 'wins_count'])
-                    </a></th>
-                    <th scope="col"><a wire:click.prevent="sortBy('points')" role="button" href="#">
+                        </a>
+                    </th>
+                    <th scope="col">
+                        <a wire:click.prevent="sortBy('points')" role="button" href="#">
                         Poeni
                         @include('includes._sort-icon', ['field' => 'points'])
-                    </a></th>
+                        </a>
+                    </th>
+                    <th scope="col">
+                        <a wire:click.prevent="sortBy('success')" role="button" href="#">
+                        Uspesnost
+                        @include('includes._sort-icon', ['field' => 'success'])
+                        </a>
+                    </th>
+                    <th scope="col">
+                        <a wire:click.prevent="sortBy('matches_played')" role="button" href="#">
+                        Utakmice
+                        @include('includes._sort-icon', ['field' => 'matches_played'])
+                        </a>
+                    </th>
+                    <th scope="col">
+                        <a wire:click.prevent="sortBy('wins_count')" role="button" href="#">
+                        Pobede
+                        @include('includes._sort-icon', ['field' => 'wins_count'])
+                        </a>
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -47,9 +61,10 @@
                     <tr>
                         <th scope="row">{{$users->firstItem() + $key}}</th>
                         <td>{{ $user->full_name }}</td>
+                        <td>{{ $user->points }}</td>
+                        <td>{{ $user->success_percentage }} %</td>
                         <td>{{ $user->matches_played }}</td>
                         <td>{{ $user->wins_count }}</td>
-                        <td>{{ $user->points }}</td>
                     </tr>
                 @endforeach
             </tbody>
