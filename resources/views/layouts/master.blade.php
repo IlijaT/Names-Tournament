@@ -37,7 +37,7 @@
             }
         </style>
 
-        @livewireAssets
+    @livewireStyles
     </head>
     <body >
         @yield('navbar')   
@@ -50,5 +50,6 @@
 
         @yield('footer') 
         
+        @livewireScripts 
     </body>
 </html>
